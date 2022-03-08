@@ -1,0 +1,42 @@
+{
+  "name": "pruebacolpatria",
+  "version": "1.0.0",
+  "description": "Prueba_Colpatria",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "staticdev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OscarJVD/Prueba_Colpatria.git"
+  },
+  "author": "OscarJVD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OscarJVD/Prueba_Colpatria/issues"
+  },
+  "homepage": "https://github.com/OscarJVD/Prueba_Colpatria#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "bcrypt": "5.0.1",
+    "cookie-parser": "1.4.5",
+    "cors": "2.8.5",
+    "date-fns": "^2.28.0",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
+    "is-phone": "2.0.0",
+    "is-valid-email": "0.0.5",
+    "is-valid-username": "0.0.1",
+    "jsonwebtoken": "8.5.1",
+    "material-table": "^1.69.3",
+    "mongodb": "4.2.2",
+    "mongoose": "6.0.2",
+    "nickname-generator": "^1.1.1",
+    "password-validator": "5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
