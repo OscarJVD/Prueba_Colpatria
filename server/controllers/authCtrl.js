@@ -97,7 +97,7 @@ const authCtrl = {
       }
 
       if (!userObj.hasOwnProperty('username')) {
-        const random = getRandomArbitrary(1, 3);
+        const random = getRandomNum(1, 3);
 
         const randomUsername = generator.randomNickname(
           {
