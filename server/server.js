@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,9 +10,14 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+// app.get('/', (req, res) => {
+//     res.json({ msg: "Hello Peter" })
+// })
+app.use(express.static(path.join(__dirname, 'build')));
+
 app.get('/', (req, res) => {
-    res.json({ msg: "Hello Peter" })
-})
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // Routes
 app.use("/api/auth", require("./routes/authRouter"));

@@ -50,6 +50,7 @@ const Kanban = () => {
         <div className="row">
           <h1 className="text-center my-3">Tablero Kanban</h1>
         </div>
+         
         <div className="row w-100 h-100">
           <div className="col-md-12 px-0 overflow-auto h-100">
             <table class="table-bordered table w-100 p-0 m-0 table-responsive overflow-auto h-100">

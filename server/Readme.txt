@@ -5,6 +5,6 @@ REFRESH_TOKEN_SECRET=skdjfh4gt5iuquierotrabajarconsophos
 ACCESS_TOKEN_SECRET=skdjfh4gt5isdfsdserdfuquierotrabajarconsophos
 
 ** Luego ejecutar **
-Se debe ejecutar el backend en node(ráiz del proyecto) con npm run dev. 
+Se debe ejecutar el backend en node(ráiz del proyecto) con npm run dev. -> (se debe tener buen internet)
 Aparte el  front en react con npm start(carpeta client)
 
