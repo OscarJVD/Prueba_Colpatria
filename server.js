@@ -9,10 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
-
-// app.get('/', (req, res) => {
-//     res.json({ msg: "Hello Peter" })
-// })
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
@@ -28,8 +24,6 @@ const URI = process.env.MONGODB_URL;
 mongoose.connect(
   URI,
   {
-    // useCreateIndex: true,
-    // useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
@@ -39,8 +33,9 @@ mongoose.connect(
   }
 );
 
-const port = process.env.PORT || 3123;
+const isProduction = process.env.PRODUCTION == "true" || process.env.PRODUCTION == true
+const port = process.env.PORT || (isProduction ? 3000 : 3123);
 
 app.listen(port, () =>
-  console.log(`Prueba Colpatria | Sophos Solutions Backend Running on port http://localhost:${port}`)
+  console.log(`Prueba Colpatria | Sophos Solutions Backend Running on ${isProduction ? process.env.PROD_BASE_URL : process.env.LOCAL_BASE_URL + ':' + port}`)
 );
