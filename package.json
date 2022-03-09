@@ -30,6 +30,8 @@
     "is-phone": "2.0.0",
     "is-valid-email": "0.0.5",
     "is-valid-username": "0.0.1",
+    "jasmine": "^4.0.2",
+    "jasmine-node": "^3.0.0",
     "jsonwebtoken": "8.5.1",
     "material-table": "1.69.3",
     "mongodb": "4.2.2",
