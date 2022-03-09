@@ -34,7 +34,7 @@ mongoose.connect(
 );
 
 const isProduction = process.env.PRODUCTION == "true" || process.env.PRODUCTION == true
-const port = process.env.PORT || (isProduction ? 3000 : 3123);
+const port = process.env.PORT || 3123;
 
 app.listen(port, () =>
   console.log(`Prueba Colpatria | Sophos Solutions Backend Running on ${isProduction ? process.env.PROD_BASE_URL : process.env.LOCAL_BASE_URL + ':' + port}`)
