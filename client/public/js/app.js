@@ -49,7 +49,7 @@ window.watchResize(function () {
     $(".notification").removeClass("show");
     $(".rm-drop-mobile").removeAttr("data-toggle");
     $(".notification a.nav-link").attr("href", "notification.html");
-    $("a.settings-link").attr("href", "settings.html");
+    // $("a.settings-link").attr("href", "settings.html");
   } else {
     $(".message-drop-li").show();
     $("#hide-in-mobile").show();

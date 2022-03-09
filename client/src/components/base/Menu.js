@@ -38,18 +38,20 @@ const Menu = () => {
             </li>
           </ul> */}
 
-          <ul className="navbar-nav mr-5 flex-row" id="main_menu">
-            <Link className="navbar-brand nav-item mr-lg-5" to="/home">
-              <img
-                src="/favicon_logos/sophos.ico"
-                width="40"
-                height="40"
-                className="mr-3"
-                alt="Logo"
-              />
-            </Link>
+          <ul className="navbar-nav mr-5 flex-row align-items-center" id="main_menu">
+            <Tooltip content="Kanban" placement="right">
+              <Link className="navbar-brand nav-item mr-lg-5" to="/home">
+                <img
+                  src="/favicon_logos/sophos.ico"
+                  width="40"
+                  height="40"
+                  className="mr-3"
+                  alt="Logo"
+                />
+              </Link>
+            </Tooltip>
 
-            <li className="nav-item s-nav dropdown d-mobile">
+            <li className="nav-item s-nav nav-icon d-flex align-items-center justify-content-center text-center d-mobile">
               <Tooltip content="Tareas" placement="bottom">
                 <Link
                   to="tasks"
@@ -61,7 +63,7 @@ const Menu = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i className="fas fa-folder-plus fa-lg text-primary"></i>
+                  <i className="fas fa-folder-plus text-primary"></i> <span className="fs-5 fw-bold">Mis tareas</span>
                 </Link>
               </Tooltip>
             </li>
@@ -74,7 +76,7 @@ const Menu = () => {
               >
                 <a
                   data-title={auth.user.firstname}
-                  className="nav-link settings-link rm-drop-mobile drop-w-tooltip bg-pill-shadow rounded-pill "
+                  className="nav-link settings-link rm-drop-mobile drop-w-tooltip rounded-pill "
                 >
                   <div className="menu-user-image">
                     {/* PROFILE PHOTO */}
@@ -107,7 +109,7 @@ const Menu = () => {
                 data-placement="bottom"
                 data-title="Settings"
                 className="nav-link settings-link rm-drop-mobile drop-w-tooltip rounded-circle bg-shadow"
-                style={{ height: "3rem", width: "3rem", display: "inherit", position: "relative", justifyContent: "center", text: "center" }}
+                style={{ height: "3rem", width: "3rem", display: "inherit", position: "relative", justifyContent: "center", text: "center", alignItems: 'center' }}
                 id="settings-dropdown"
               >
               </a>
@@ -117,7 +119,7 @@ const Menu = () => {
                   setShowSettings(showSettings == "show" ? " " : "show")
                 }
                 className="fas fa-sort-down bg-shadow-icon text-dark fa-sm pointer"
-                style={{ left: '1rem', top: '1.7rem', width: "100%", position: 'absolute'}}
+                style={{ top: '0.6rem', position: 'absolute' }}
               ></i>
               {/* END BTN DROPDOWN SETTINGS AVATAR */}
 

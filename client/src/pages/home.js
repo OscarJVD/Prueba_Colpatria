@@ -1,11 +1,12 @@
 import React from 'react';
+import Kanban from '../components/main/kanban';
 
 const Home = () => {
-    return (
-        <div>
-            home
-        </div>
-    );
+  return (
+    <>
+      <Kanban />
+    </>
+  );
 }
 
 export default Home;

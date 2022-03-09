@@ -17,6 +17,7 @@ const auth = async (req, res, next) => {
     const user = await User.findOne({ _id: decoded.id });
 
     req.authUser = user;
+    req.authUserId = decoded.id;
 
     console.log(req.authUser);
     console.log(next);

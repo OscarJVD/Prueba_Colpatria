@@ -16,7 +16,7 @@ const taskReducer = (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-        tasks: [...state.tasks, action.payload.tasks],
+        tasks: [...state.tasks, action.payload.task],
       };
     default:
       return state;
