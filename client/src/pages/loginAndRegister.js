@@ -75,7 +75,7 @@ const LoginAndRegister = () => {
 
       dispatch({
         type: GLOBAL_TYPES.ALERT,
-        payload: { success: result.data.msg },
+        payload: {}
       });
 
       // console.log(result);
@@ -188,6 +188,18 @@ const LoginAndRegister = () => {
     <div>
       {/* LOGIN */}
       <div className="row ht-100v flex-row-reverse no-gutters">
+      <div className="col-md-6 border-danger border-left shadow-lg d-flex justify-content-center align-items-center bg-dark">
+          <div className="auth-left-content mt-5 mb-5">
+            <div className="mt-5 mb-5">
+              <h1 className="border-bottom text-left display-1 create-account mb-3 auth-txt-logo fw-bolderer fs-big">
+                Colpatria
+              </h1>
+              <h3 className="text-left fw-normal text-white">
+                Prueba Colpatria | Sophos Solutions
+              </h3>
+            </div>
+          </div>
+        </div>
         <div className="col-md-6 d-flex justify-content-center align-items-center">
           <div className="signup-form">
             <div className="auth-logo text-center mb-5">
@@ -263,14 +275,14 @@ const LoginAndRegister = () => {
                   <div className="form-group">
                     <button
                       type="submit"
-                      className="btn btn-primary sign-up w-100"
+                      className="btn btn-primary sign-up w-50"
                       disabled={
                         username_email_or_mobile_login && password
                           ? false
                           : true
                       }
                     >
-                      Entrar
+                      Ingresar
                     </button>
                   </div>
                 </div>
@@ -278,27 +290,15 @@ const LoginAndRegister = () => {
                   <hr />
                   <button
                     type="button"
-                    className="btn btn-success"
+                    className="btn btn-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#registerModal"
                   >
-                    Crear cuenta nueva
+                    Crear usuario
                   </button>
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-        <div className="col-md-6 d-flex justify-content-center align-items-center">
-          <div className="auth-left-content mt-5 mb-5">
-            <div className="mt-5 mb-5">
-              <h1 className="text-left display-1 create-account mb-3 auth-txt-logo fw-bolderer fs-big">
-                Colpatria
-              </h1>
-              <h3 className="text-left fw-normal text-dark">
-                Prueba Colpatria | Sophos Solutions
-              </h3>
-            </div>
           </div>
         </div>
       </div>
@@ -311,19 +311,7 @@ const LoginAndRegister = () => {
         aria-labelledby="fingerprintModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-body text-center">
-              <h3 className="text-muted display-5">
-                Place your Finger on the Device Now
-              </h3>
-              <img
-                src="assets/images/icons/auth-fingerprint.png"
-                alt="Fingerprint"
-              />
-            </div>
-          </div>
-        </div>
+        
       </div>
       {/* END LOGIN */}
 

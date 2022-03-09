@@ -1,17 +1,14 @@
-import { useDispatch } from "react-redux";
 import { postDataAPI } from "../../utils/fetchData";
 import { GLOBAL_TYPES } from "./globalTypes";
 
-export const loginUser = (user) => async () => {
-  const dispatch = useDispatch();
+export const loginUser = (user) => async (dispatch) => {
   try {
-
     dispatch({ type: GLOBAL_TYPES.ALERT, payload: { loading: true } });
 
-    const result = await postDataAPI("auth/login", user);
+    const result = await postDataAPI("login", user);
 
     console.log(result);
-    
+
     dispatch({
       type: GLOBAL_TYPES.LOGIN_USER,
       payload: { token: result.data.access_token, user: result.data.user },
@@ -35,13 +32,11 @@ export const loginUser = (user) => async () => {
   }
 };
 
-export const registerUser = (user) => async () => {
-  const dispatch = useDispatch();
+export const registerUser = (user) => async (dispatch) => {
   try {
-
     dispatch({ type: GLOBAL_TYPES.ALERT, payload: { loading: true } });
 
-    const result = await postDataAPI("auth/register", user);
+    const result = await postDataAPI("register", user);
 
     // console.log(result);
 
@@ -71,8 +66,7 @@ export const registerUser = (user) => async () => {
   }
 };
 
-export const refreshToken = () => async () => {
-  const dispatch = useDispatch();
+export const refreshToken = () => async (dispatch) => {
   const firstSlidesLogin = localStorage.getItem("firstSlidesLogin");
 
   if (firstSlidesLogin) {
@@ -96,17 +90,17 @@ export const refreshToken = () => async () => {
       // console.log(window.location)
       if (
         window.location.pathname !== "/login" &&
-        window.location.pathname !== "/"
+        window.location.pathname !== "/" && error && error.response
       ) {
-        console.log(GLOBAL_TYPES.ALERT);
 
-        if (GLOBAL_TYPES.ALERT)
-          dispatch({
-            type: GLOBAL_TYPES.ALERT,
-            payload: {
-              error: error.response,
-            },
-          });
+        console.log('error actions', error)
+
+        dispatch({
+          type: GLOBAL_TYPES.ALERT,
+          payload: {
+            error: error.data,
+          },
+        });
       } else {
         dispatch({
           type: GLOBAL_TYPES.ALERT,
@@ -117,10 +111,8 @@ export const refreshToken = () => async () => {
   }
 };
 
-export const logout = () => async () => {
-  const dispatch = useDispatch();
+export const logout = () => async (dispatch) => {
   try {
-
     localStorage.removeItem("firstSlidesLogin");
     await postDataAPI("auth/logout");
 

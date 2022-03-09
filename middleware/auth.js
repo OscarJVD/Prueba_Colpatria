@@ -18,6 +18,8 @@ const auth = async (req, res, next) => {
 
     req.authUser = user;
 
+    console.log(req.authUser);
+    console.log(next);
     next();
   } catch (error) {
     console.log(error);

@@ -173,7 +173,7 @@ const authCtrl = {
         user = await Users.findOne({
           username: username_email_or_mobile_login,
         }).populate(
-          "avatar banner username firstname lastname mobile email fullname"
+          "avatar username firstname lastname mobile email fullname"
         );
 
         if (!user)
@@ -186,7 +186,7 @@ const authCtrl = {
         user = await Users.findOne({
           email: username_email_or_mobile_login,
         }).populate(
-          "avatar banner username firstname lastname mobile email fullname"
+          "avatar username firstname lastname mobile email fullname"
         );
 
         if (!user) return res.status(400).json({ msg: "El correo no existe." });
@@ -196,7 +196,7 @@ const authCtrl = {
         user = await Users.findOne({
           mobile: username_email_or_mobile_login,
         }).populate(
-          "avatar banner username firstname lastname mobile email fullname"
+          "avatar username firstname lastname mobile email fullname"
         );
 
         if (!user) return res.status(400).json({ msg: "El móvil no existe." });

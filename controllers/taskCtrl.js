@@ -4,10 +4,10 @@ const Tasks = require("../models/taskModel");
 const taskCtrl = {
   gettasks: async (req, res) => {
     try {
-      const authUser = await auth(req, res);
-      if (!authUser) return res.status('400').json({ err: 'Inicia sesión para continuar.' });
+      // const authUser = await auth(req, res);
+      // if (!authUser) return res.status('400').json({ err: 'Inicia sesión para continuar.' });
 
-      const tasks = await Tasks.find({ user: authUser.id });
+      const tasks = await Tasks.find();
 
       res.json({ tasks });
     } catch (error) {
@@ -19,8 +19,8 @@ const taskCtrl = {
       const authUser = await auth(req, res);
       if (!authUser) return res.status('400').json({ err: 'Inicia sesión para continuar.' });
 
-      const { title, description } = req.body;
-      const task = new Tasks({ title, description, user: authUser.id });
+      const { title, desc } = req.body;
+      const task = new Tasks({ title, desc, user: authUser.id });
       await task.save();
       res.json({ msg: 'Tarea Guardada' });
     } catch (error) {
@@ -29,11 +29,8 @@ const taskCtrl = {
   },
   edittask: async (req, res) => {
     try {
-      const authUser = await auth(req, res);
-      if (!authUser) return res.status('400').json({ err: 'Inicia sesión para continuar.' });
-
-      const { title, description } = req.body;
-      const newTask = { title, description };
+      const { title, desc } = req.body;
+      const newTask = { title, desc };
       await Tasks.findByIdAndUpdate(req.params.id, newTask);
       res.json({ msg: 'Tarea Editada' });
 
@@ -43,9 +40,6 @@ const taskCtrl = {
   },
   deletetask: async (req, res) => {
     try {
-      const authUser = await auth(req, res);
-      if (!authUser) return res.status('400').json({ err: 'Inicia sesión para continuar.' });
-
       await Tasks.findByIdAndRemove(req.params.id);
       res.json({ msg: 'Tarea Eliminada' });
 

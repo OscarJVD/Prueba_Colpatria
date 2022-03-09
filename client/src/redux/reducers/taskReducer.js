@@ -1,9 +1,23 @@
-import { GLOBAL_TYPES } from "../actions/globalTypes";
+import { TASK_TYPES } from "../actions/taskAction";
 
-const taskReducer = (state = {}, action) => {
+const initialState = {
+  loading: false,
+  tasks: [],
+};
+
+const taskReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GLOBAL_TYPES.TASK:
-      return action.payload;
+    case TASK_TYPES.LOADING:
+      return {
+        ...state,
+        loading: action.payload,
+      };
+    case TASK_TYPES.GET_TASK:
+      console.log(action.payload);
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload.tasks],
+      };
     default:
       return state;
   }

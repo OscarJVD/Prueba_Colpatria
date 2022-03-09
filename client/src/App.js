@@ -8,56 +8,22 @@ import { refreshToken } from "./redux/actions/authAction";
 import Menu from "./components/base/Menu";
 import PageRender from "./utils/customRouter/PageRender";
 import PrivateRouter from "./utils/customRouter/PrivateRouter";
-import { GLOBAL_TYPES } from "./redux/actions/globalTypes";
-import { postDataAPI } from "./utils/fetchData";
 
 function App() {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    // dispatch(refreshToken());
-    const firstSlidesLogin = localStorage.getItem("firstSlidesLogin");
+  // useEffect(() => {
+  //   console.log(task);
+  // }, [task])
+  
 
-    if (firstSlidesLogin) {
-      dispatch({ type: GLOBAL_TYPES.ALERT, payload: { loading: true } });
-  
-      try {
-        const result = await postDataAPI("auth/refreshTkn");
-  
-        console.log(result);
-  
-        if (result)
-          dispatch({
-            type: GLOBAL_TYPES.LOGIN_USER,
-            payload: { token: result.data.access_token, user: result.data.user },
-          });
-  
-        dispatch({ type: GLOBAL_TYPES.ALERT, payload: {} });
-      } catch (error) {
-        if (
-          window.location.pathname !== "/login" &&
-          window.location.pathname !== "/"
-        ) {
-          console.log(GLOBAL_TYPES.ALERT);
-  
-          if (GLOBAL_TYPES.ALERT)
-            dispatch({
-              type: GLOBAL_TYPES.ALERT,
-              payload: {
-                error: error.response ? error.response : 'error',
-              },
-            });
-        } else {
-          dispatch({
-            type: GLOBAL_TYPES.ALERT,
-            payload: {},
-          });
-        }
-      }
-    }
+  // SETEO DEL ESTADO GLOBAL
+  useEffect(() => {
+    dispatch(refreshToken());
   }, [
-    dispatch
+    dispatch,
+    // , auth.token
   ]);
 
   return (

@@ -30,13 +30,13 @@ const Menu = () => {
         className="navbar navbar-expand-lg shadow-sm sticky-top"
       >
         <div className="w-100 justify-content-md-center">
-          <ul className="nav navbar-nav enable-mobile px-2">
+          {/* <ul className="nav navbar-nav enable-mobile px-2">
             <li className="nav-item">
               <button type="button" className="btn nav-link shadow-none">
                 <i className="fas fa-plus text-dark fa-lg "></i>
               </button>
             </li>
-          </ul>
+          </ul> */}
 
           <ul className="navbar-nav mr-5 flex-row" id="main_menu">
             <Link className="navbar-brand nav-item mr-lg-5" to="/home">
@@ -96,7 +96,7 @@ const Menu = () => {
               </Tooltip>
             </li>
 
-            <li className="nav-item s-nav nav-icon dropdown">
+            <li className="nav-item s-nav nav-icon dropdown" style={{ position: "relative", display: 'flex', justifyContent: "center", alignItems: "center" }}>
               {/* BTN DROPDOWN SETTINGS AVATAR */}
               <a
                 href="#"
@@ -106,22 +106,18 @@ const Menu = () => {
                 data-toggle="dropdown"
                 data-placement="bottom"
                 data-title="Settings"
-                className="nav-link settings-link rm-drop-mobile drop-w-tooltip rounded-circle bg-shadow position-relative"
-                style={{ height: "3rem", width: "3rem" }}
+                className="nav-link settings-link rm-drop-mobile drop-w-tooltip rounded-circle bg-shadow"
+                style={{ height: "3rem", width: "3rem", display: "inherit", position: "relative", justifyContent: "center", text: "center" }}
                 id="settings-dropdown"
               >
-                {/* <div className="menu-user-image"> */}
-                {/* <img src={auth.user.avatar}
-                    style={{ filter: `${theme ? 'invert(1)' : 'invert(0)'}` }}
-                  className="menu-user-img ml-1 nav-settings" alt="Menu Image" /> */}
-                {/* </div> */}
               </a>
 
               <i
                 onClick={() =>
                   setShowSettings(showSettings == "show" ? " " : "show")
                 }
-                className="fas fa-sort-down bg-shadow-icon text-dark fa-sm position-absolute pointer"
+                className="fas fa-sort-down bg-shadow-icon text-dark fa-sm pointer"
+                style={{ left: '1rem', top: '1.7rem', width: "100%", position: 'absolute'}}
               ></i>
               {/* END BTN DROPDOWN SETTINGS AVATAR */}
 
@@ -158,13 +154,13 @@ const Menu = () => {
               </div>
             </li>
 
-            <button
+            {/* <button
               type="button"
               className="btn border-0 nav-link shadow-none"
               id="menu-toggle"
             >
               <i className="fas fa-bars text-dark fa-lg fw-bold"></i>
-            </button>
+            </button> */}
           </ul>
         </div>
       </nav>

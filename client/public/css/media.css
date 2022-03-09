@@ -306,7 +306,7 @@
         width: 30%;
     }
     #navbar-main .navbar-nav li.s-nav {
-        width: 30%;
+        /* width: 30%; */
         justify-content: center;
     }
 }
