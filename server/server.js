@@ -13,11 +13,6 @@ app.use(cookieParser());
 // app.get('/', (req, res) => {
 //     res.json({ msg: "Hello Peter" })
 // })
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 // Routes
 app.use("/api/auth", require("./routes/authRouter"));
